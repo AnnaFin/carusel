@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио | Мои проекты</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #6f42c1;
+            --secondary-color: #20c997;
+            --accent-color: #fd7e14;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-top: 76px;
+            background-color: #f8f9fa;
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            color: var(--primary-color) !important;
+        }
+        
+        .navbar-brand i {
+            margin-right: 8px;
+        }
+        
+        .carousel-item {
+            height: 600px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .carousel-content {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .project-info {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            color: #333;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .project-image {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .project-1 {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('тудулист.png');
+        }
+        
+        .project-2 {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('макларен.png');
+        }
+        
+        .project-3 {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('визитка.png');
+        }
+        
+        .badge-custom {
+            background-color: var(--secondary-color);
+            font-size: 0.9rem;
+            padding: 5px 12px;
+        }
+        
+        .btn-visit {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .btn-visit:hover {
+            background-color: #5a32a3;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .carousel-control-prev, .carousel-control-next {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: 0 20px;
+        }
+        
+        .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 5px;
+            background-color: rgba(255,255,255,0.5);
+            border: none;
+        }
+        
+        .carousel-indicators button.active {
+            background-color: white;
+        }
+
+        .tech-item {
+            background: rgba(111, 66, 193, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            border: 1px solid rgba(111, 66, 193, 0.2);
+        }
+        
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 24px;
+        }
+        
+        @media (max-width: 992px) {
+            .carousel-item {
+                height: auto;
+                min-height: 600px;
+            }
+            
+            .carousel-content {
+                padding: 40px 20px;
+            }
+            
+            .project-info, .project-image {
+                height: auto;
+                margin-bottom: 20px;
+            }
+            
+            .project-info {
+                height: auto;
+                min-height: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .carousel-content {
+                padding: 20px 15px;
+            }
+            
+            .project-info {
+                padding: 20px;
+            }
+            
+            body {
+                padding-top: 66px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-code-slash"></i>Портфолио
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Проекты</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Быстрые ссылки
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="https://annafin.github.io/to-do-list/" target="_blank">To-Do List</a></li>
+                            <li><a class="dropdown-item" href="https://annafin.github.io/Mclaren/" target="_blank">McLaren F1</a></li>
+                            <li><a class="dropdown-item" href="https://annafin.github.io/Visitka2/" target="_blank">Сайт-визитка</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="mb-5">
+        <div id="projectsCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="2"></button>
+            </div>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="carousel-content">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 mb-4 mb-lg-0">
+                                <div class="project-info">
+                                    <h2 class="mb-3">To-Do List</h2>
+                                    <p class="mb-4">Интерактивное веб-приложение для планирования ежедневных задач с возможностью отметки выполненных заданий, фильтрации и управления приоритетами.</p>
+
+                                    <p class="mb-4"><strong>Функции:</strong> Добавление/удаление задач, отметка выполненных, фильтрация по статусу, сохранение данных.</p>
+                                    
+                                    <a href="https://annafin.github.io/to-do-list/" class="btn btn-visit" target="_blank">
+                                        <i class="bi bi-eye me-2"></i>Посмотреть проект
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="project-image project-1">
+                                    <div class="h-100 d-flex flex-column justify-content-end p-4">
+                                        <h3 class="text-white">To-Do List</h3>
+                                        <p class="text-white">Организуйте свой день эффективно</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="carousel-content">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 mb-4 mb-lg-0">
+                                <div class="project-info">
+                                    <h2 class="mb-3">McLaren Formula 1 Team</h2>
+                                    <p class="mb-4">Официальный фанатский сайт команды McLaren в Формуле 1. Представляет команду, гонщиков, историю и последние новости из мира автоспорта.</p>
+
+                                    <p class="mb-4"><strong>Функции:</strong> Сравнительная таблица автомобилей, история команды, биография гонщиков, наследие команды.</p>
+                                    
+                                    <a href="https://annafin.github.io/Mclaren/" class="btn btn-visit" target="_blank">
+                                        <i class="bi bi-eye me-2"></i>Посмотреть проект
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="project-image project-2">
+                                    <div class="h-100 d-flex flex-column justify-content-end p-4">
+                                        <h3 class="text-white">McLaren F1 Team</h3>
+                                        <p class="text-white">Скорость, технологии, инновации</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="carousel-content">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 mb-4 mb-lg-0">
+                                <div class="project-info">
+                                    <h2 class="mb-3">Сайт-визитка</h2>
+                                    <p class="mb-4">Профессиональный сайт-портфолио веб-разработчика с информацией о навыках, опыте работы и выполненых проектах.</p>
+
+                                    <p class="mb-4"><strong>Функции:</strong> Портфолио работ, контактная форма, креативные навыки, современный дизайн, профессиональные услуги.</p>
+                                    
+                                    <a href="https://annafin.github.io/Visitka2/" class="btn btn-visit" target="_blank">
+                                        <i class="bi bi-eye me-2"></i>Посмотреть проект
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="project-image project-3">
+                                    <div class="h-100 d-flex flex-column justify-content-end p-4">
+                                        <h3 class="text-white">Веб-разработчик</h3>
+                                        <p class="text-white">Создание современных веб-решений</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Предыдущий</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#projectsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Следующий</span>
+            </button>
+        </div>
+    </section>
+
+    <section id="projects" class="container mb-5">
+        <h2 class="text-center mb-5">Детали проектов</h2>
+        
+        <div class="row">
+            <div class="col-md-4 mb-4" id="todo">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <div class="feature-icon">
+                            <i class="bi bi-check2-square"></i>
+                        </div>
+                        <h4 class="card-title text-center">To-Do List</h4>
+                        <p class="card-text">Веб-приложение для управления ежедневными задачами с интуитивным интерфейсом.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Отметка выполненных задач</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Фильтрация по статусу</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Интуитивный интерфейс</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Адаптивный дизайн</li>
+                        </ul>
+                        <div class="text-center mt-3">
+                            <a href="https://annafin.github.io/to-do-list/" class="btn btn-primary" target="_blank">
+                                <i class="bi bi-link me-2"></i>Открыть сайт
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4" id="f1">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <div class="feature-icon">
+                            <i class="bi bi-speedometer2"></i>
+                        </div>
+                        <h4 class="card-title text-center">McLaren F1</h4>
+                        <p class="card-text">Фанатский сайт команды McLaren с информацией о гонщиках и расписании сезона.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Современный диайн</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Сравнитльная таблица моделей марки</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Легендарные гонщики</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Поддержка чемпиона</li>
+                        </ul>
+                        <div class="text-center mt-3">
+                            <a href="https://annafin.github.io/Mclaren/" class="btn btn-danger" target="_blank">
+                                <i class="bi bi-link me-2"></i>Открыть сайт
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4" id="portfolio">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <div class="feature-icon">
+                            <i class="bi bi-person-badge"></i>
+                        </div>
+                        <h4 class="card-title text-center">Сайт-визитка</h4>
+                        <p class="card-text">Профессиональное портфолио веб-разработчика с контактной информацией.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Анимации и переходы</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Контактная форма</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Портфолио проектов</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Достижения и заслуги</li>
+                        </ul>
+                        <div class="text-center mt-3">
+                            <a href="https://annafin.github.io/Visitka2/" class="btn btn-success" target="_blank">
+                                <i class="bi bi-link me-2"></i>Открыть сайт
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <hr class="bg-white">
+            <div class="text-center">
+                <p class="mb-0">© 2025 Портфолио веб-разработчика. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const myCarousel = document.getElementById('projectsCarousel');
+            const carousel = new bootstrap.Carousel(myCarousel, {
+                interval: 5000,
+                wrap: true
+            });
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    if(this.getAttribute('href') !== '#') {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        if(targetId === '#home') {
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        } else {
+                            const targetElement = document.querySelector(targetId);
+                            if(targetElement) {
+                                targetElement.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
